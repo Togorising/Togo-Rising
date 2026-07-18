@@ -4,7 +4,6 @@ import PageHero from "@/components/PageHero";
 import SectionGrid from "@/components/SectionGrid";
 import { getDictionary } from "@/lib/dictionaries";
 import { isValidLocale } from "@/lib/i18n";
-import { tallyUrls } from "@/lib/tally";
 
 export async function generateMetadata({
   params,
@@ -31,7 +30,7 @@ export default async function UsaPathwaysPage({
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionGrid sections={dict.sections} />
         <div className="mt-10 flex justify-start">
-          <CtaButton href={tallyUrls.mentorSignup} variant="primary">
+          <CtaButton href={`/${locale}/mentor`} variant="primary">
             {dict.cta}
           </CtaButton>
         </div>

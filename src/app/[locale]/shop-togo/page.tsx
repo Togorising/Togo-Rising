@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import CtaButton from "@/components/CtaButton";
+import FormSection from "@/components/FormSection";
 import PageHero from "@/components/PageHero";
 import { getDictionary } from "@/lib/dictionaries";
 import { isValidLocale } from "@/lib/i18n";
-import { tallyUrls } from "@/lib/tally";
+import type { FieldConfig } from "@/components/IntakeForm";
 
 export async function generateMetadata({
   params,
@@ -22,7 +22,39 @@ export default async function ShopTogoPage({
 }) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
-  const dict = getDictionary(locale).shopTogo;
+  const fullDict = getDictionary(locale);
+  const dict = fullDict.shopTogo;
+  const { common, businessListing } = fullDict.forms;
+
+  const fields: FieldConfig[] = [
+    {
+      kind: "text",
+      name: "businessName",
+      label: businessListing.businessNameLabel,
+      required: true,
+    },
+    {
+      kind: "text",
+      name: "ownerName",
+      label: businessListing.ownerNameLabel,
+      required: true,
+    },
+    { kind: "email", name: "email", label: common.emailLabel, required: true },
+    {
+      kind: "select",
+      name: "category",
+      label: businessListing.categoryLabel,
+      options: dict.categories,
+      required: true,
+    },
+    { kind: "text", name: "website", label: businessListing.websiteLabel },
+    {
+      kind: "textarea",
+      name: "description",
+      label: businessListing.descriptionLabel,
+      required: true,
+    },
+  ];
 
   return (
     <>
@@ -35,11 +67,6 @@ export default async function ShopTogoPage({
           <p className="mx-auto mt-3 max-w-xl font-serif text-base leading-relaxed text-ink/75">
             {dict.listedBody}
           </p>
-          <div className="mt-6 flex justify-center">
-            <CtaButton href={tallyUrls.businessListing} variant="primary">
-              {dict.cta}
-            </CtaButton>
-          </div>
         </div>
 
         <div className="mt-12">
@@ -56,6 +83,16 @@ export default async function ShopTogoPage({
               </span>
             ))}
           </div>
+        </div>
+
+        <div className="mt-12 max-w-2xl">
+          <FormSection
+            title={dict.cta}
+            description={businessListing.description}
+            formType="businessListing"
+            fields={fields}
+            common={common}
+          />
         </div>
       </section>
     </>

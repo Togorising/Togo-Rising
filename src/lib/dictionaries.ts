@@ -90,6 +90,59 @@ export type Dictionary = {
     followHeading: string;
     followBody: string;
   };
+  forms: {
+    common: {
+      nameLabel: string;
+      emailLabel: string;
+      cityLabel: string;
+      submitLabel: string;
+      sendingLabel: string;
+      successTitle: string;
+      successBody: string;
+      errorTitle: string;
+      errorBody: string;
+      configMissingBody: string;
+      requiredHint: string;
+    };
+    join: {
+      title: string;
+      description: string;
+      lookingForLabel: string;
+      lookingForPlaceholder: string;
+    };
+    opportunity: {
+      title: string;
+      description: string;
+      opportunityTitleLabel: string;
+      typeLabel: string;
+      typeOptions: string[];
+      detailsLabel: string;
+      linkLabel: string;
+    };
+    newcomerIntake: {
+      title: string;
+      description: string;
+      needHelpLabel: string;
+      needHelpPlaceholder: string;
+    };
+    mentor: {
+      title: string;
+      description: string;
+      fieldLabel: string;
+      fieldPlaceholder: string;
+      lookingForLabel: string;
+      lookingForPlaceholder: string;
+    };
+    businessListing: {
+      title: string;
+      description: string;
+      businessNameLabel: string;
+      ownerNameLabel: string;
+      categoryLabel: string;
+      websiteLabel: string;
+      descriptionLabel: string;
+    };
+  };
 };
 
 const en: Dictionary = {
@@ -333,6 +386,60 @@ const en: Dictionary = {
     followHeading: "Follow along",
     followBody: "Social links coming soon.",
   },
+  forms: {
+    common: {
+      nameLabel: "Name",
+      emailLabel: "Email",
+      cityLabel: "City",
+      submitLabel: "Submit",
+      sendingLabel: "Sending…",
+      successTitle: "Thank you.",
+      successBody: "We received your submission and will be in touch soon.",
+      errorTitle: "Something went wrong.",
+      errorBody: "Please try again, or email us directly.",
+      configMissingBody:
+        "This form isn't fully set up yet. Please email us directly instead.",
+      requiredHint: "Required",
+    },
+    join: {
+      title: "Join the Community",
+      description: "Tell us a bit about yourself and we'll get you connected.",
+      lookingForLabel: "What are you hoping to find? (optional)",
+      lookingForPlaceholder: "Job leads, mentorship, friends nearby, all of it…",
+    },
+    opportunity: {
+      title: "Submit an Opportunity",
+      description: "Share a job, scholarship, contract, or grant with the community.",
+      opportunityTitleLabel: "Opportunity title",
+      typeLabel: "Type",
+      typeOptions: ["Job", "Scholarship", "Contract", "Grant"],
+      detailsLabel: "Details",
+      linkLabel: "Link (optional)",
+    },
+    newcomerIntake: {
+      title: "Get Started",
+      description: "Tell us where you are and what would help most right now.",
+      needHelpLabel: "What do you need help with?",
+      needHelpPlaceholder: "Housing, school enrollment, finding a mentor…",
+    },
+    mentor: {
+      title: "Request a Mentor",
+      description: "We'll match you with someone who's already been where you are.",
+      fieldLabel: "Field or industry",
+      fieldPlaceholder: "Nursing, software engineering, small business…",
+      lookingForLabel: "What are you looking for in a mentor?",
+      lookingForPlaceholder: "Career advice, resume review, someone to talk through options with…",
+    },
+    businessListing: {
+      title: "List Your Business",
+      description: "Tell us about your business and we'll feature it in the directory.",
+      businessNameLabel: "Business name",
+      ownerNameLabel: "Owner name",
+      categoryLabel: "Category",
+      websiteLabel: "Website or Instagram (optional)",
+      descriptionLabel: "Tell us about your business",
+    },
+  },
 };
 
 const fr: Dictionary = {
@@ -575,6 +682,60 @@ const fr: Dictionary = {
     emailBody: "Pour toute question générale, partenariat ou demande presse.",
     followHeading: "Suivez-nous",
     followBody: "Liens vers les réseaux sociaux bientôt disponibles.",
+  },
+  forms: {
+    common: {
+      nameLabel: "Nom",
+      emailLabel: "Email",
+      cityLabel: "Ville",
+      submitLabel: "Envoyer",
+      sendingLabel: "Envoi en cours…",
+      successTitle: "Merci.",
+      successBody: "Nous avons bien reçu votre message et reviendrons vers vous bientôt.",
+      errorTitle: "Une erreur s'est produite.",
+      errorBody: "Veuillez réessayer, ou nous écrire directement.",
+      configMissingBody:
+        "Ce formulaire n'est pas encore entièrement configuré. Merci de nous écrire directement.",
+      requiredHint: "Obligatoire",
+    },
+    join: {
+      title: "Rejoindre la communauté",
+      description: "Parlez-nous un peu de vous et nous vous mettrons en relation.",
+      lookingForLabel: "Que recherchez-vous ? (facultatif)",
+      lookingForPlaceholder: "Des offres d'emploi, du mentorat, des amis à proximité…",
+    },
+    opportunity: {
+      title: "Soumettre une opportunité",
+      description: "Partagez un emploi, une bourse, un contrat ou une subvention avec la communauté.",
+      opportunityTitleLabel: "Titre de l'opportunité",
+      typeLabel: "Type",
+      typeOptions: ["Emploi", "Bourse", "Contrat", "Subvention"],
+      detailsLabel: "Détails",
+      linkLabel: "Lien (facultatif)",
+    },
+    newcomerIntake: {
+      title: "Commencer",
+      description: "Dites-nous où vous en êtes et ce qui vous aiderait le plus en ce moment.",
+      needHelpLabel: "De quelle aide avez-vous besoin ?",
+      needHelpPlaceholder: "Logement, inscription scolaire, trouver un mentor…",
+    },
+    mentor: {
+      title: "Demander un mentor",
+      description: "Nous vous mettrons en relation avec quelqu'un qui est déjà passé par là.",
+      fieldLabel: "Domaine ou secteur",
+      fieldPlaceholder: "Infirmerie, développement logiciel, petite entreprise…",
+      lookingForLabel: "Que recherchez-vous chez un mentor ?",
+      lookingForPlaceholder: "Des conseils de carrière, une relecture de CV, quelqu'un avec qui réfléchir…",
+    },
+    businessListing: {
+      title: "Référencer votre entreprise",
+      description: "Parlez-nous de votre entreprise et nous la mettrons en avant dans l'annuaire.",
+      businessNameLabel: "Nom de l'entreprise",
+      ownerNameLabel: "Nom du propriétaire",
+      categoryLabel: "Catégorie",
+      websiteLabel: "Site web ou Instagram (facultatif)",
+      descriptionLabel: "Parlez-nous de votre entreprise",
+    },
   },
 };
 

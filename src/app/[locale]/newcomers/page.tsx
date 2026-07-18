@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CtaButton from "@/components/CtaButton";
+import FormSection from "@/components/FormSection";
 import PageHero from "@/components/PageHero";
 import SectionGrid from "@/components/SectionGrid";
 import { getDictionary } from "@/lib/dictionaries";
 import { isValidLocale } from "@/lib/i18n";
-import { tallyUrls } from "@/lib/tally";
+import type { FieldConfig } from "@/components/IntakeForm";
 
 export async function generateMetadata({
   params,
@@ -24,7 +25,22 @@ export default async function NewcomersPage({
 }) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
-  const dict = getDictionary(locale).newcomers;
+  const fullDict = getDictionary(locale);
+  const dict = fullDict.newcomers;
+  const { common, newcomerIntake } = fullDict.forms;
+
+  const fields: FieldConfig[] = [
+    { kind: "text", name: "name", label: common.nameLabel, required: true },
+    { kind: "email", name: "email", label: common.emailLabel, required: true },
+    { kind: "text", name: "city", label: common.cityLabel },
+    {
+      kind: "textarea",
+      name: "needHelp",
+      label: newcomerIntake.needHelpLabel,
+      placeholder: newcomerIntake.needHelpPlaceholder,
+      required: true,
+    },
+  ];
 
   return (
     <>
@@ -32,10 +48,7 @@ export default async function NewcomersPage({
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionGrid sections={dict.sections} />
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <CtaButton href={tallyUrls.newcomerIntake} variant="primary">
-            {dict.ctaStart}
-          </CtaButton>
-          <CtaButton href={tallyUrls.mentorSignup} variant="ghost">
+          <CtaButton href={`/${locale}/mentor`} variant="ghost">
             {dict.ctaMentor}
           </CtaButton>
           <Link
@@ -44,6 +57,16 @@ export default async function NewcomersPage({
           >
             {dict.usaLink}
           </Link>
+        </div>
+
+        <div className="mt-12 max-w-2xl">
+          <FormSection
+            title={newcomerIntake.title}
+            description={newcomerIntake.description}
+            formType="newcomerIntake"
+            fields={fields}
+            common={common}
+          />
         </div>
       </section>
     </>

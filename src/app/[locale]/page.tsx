@@ -5,7 +5,6 @@ import KenteStripe from "@/components/KenteStripe";
 import NewsFeed from "@/components/NewsFeed";
 import { getDictionary } from "@/lib/dictionaries";
 import { isValidLocale, type Locale } from "@/lib/i18n";
-import { tallyUrls } from "@/lib/tally";
 import { notFound } from "next/navigation";
 
 export default async function HomePage({
@@ -34,7 +33,7 @@ export default async function HomePage({
               {dict.mission}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <CtaButton href={tallyUrls.join} variant="primary">
+              <CtaButton href={withLocale("/join")} variant="primary">
                 {dict.home.joinCommunity}
               </CtaButton>
               <CtaButton href={withLocale("/opportunities")} variant="ghost">
@@ -90,7 +89,7 @@ export default async function HomePage({
           {dict.home.readyBody}
         </p>
         <div className="mt-8 flex justify-center">
-          <CtaButton href={tallyUrls.join} variant="secondary">
+          <CtaButton href={withLocale("/join")} variant="secondary">
             {dict.home.joinCommunity}
           </CtaButton>
         </div>
