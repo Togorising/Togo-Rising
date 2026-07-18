@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { defaultLocale, locales } from "@/lib/i18n";
 
-export function proxy(request: NextRequest) {
+// Uses the legacy `middleware.ts` convention (not `proxy.ts`) on purpose:
+// Next.js 16's `proxy` always runs on the Node.js runtime, which the
+// Cloudflare Workers build doesn't support. `middleware.ts` still runs on
+// the edge runtime, which Cloudflare requires.
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const hasLocale = locales.some(
