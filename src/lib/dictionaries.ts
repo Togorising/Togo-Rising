@@ -60,7 +60,13 @@ export type Dictionary = {
     categoriesLabel: string;
     featuredLabel: string;
     featuredDisclaimer: string;
-    featured: { title: string; org: string; link: string; note: string }[];
+    featured: {
+      title: string;
+      org: string;
+      link: string;
+      note: string;
+      deadline: string | null;
+    }[];
   };
   newcomers: {
     eyebrow: string;
@@ -312,30 +318,35 @@ const en: Dictionary = {
         org: "IRS · USAJOBS",
         link: "https://www.usajobs.gov/job/876071200",
         note: "Apply by July 23, 2026",
+        deadline: "2026-07-23",
       },
       {
         title: "Semester of Service",
         org: "U.S. Office of Personnel Management",
         link: "https://semesterofservice.usajobs.gov/",
         note: "Student volunteer program, rolling opportunities",
+        deadline: null,
       },
       {
         title: "Rhodes Scholarship for West Africa",
         org: "Rhodes Trust · includes Togo",
         link: "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/",
         note: "Applications open through August 27, 2026",
+        deadline: "2026-08-27",
       },
       {
         title: "US Tech Force",
         org: "Office of Personnel Management",
         link: "https://techforce.gov/",
         note: "No degree required",
+        deadline: null,
       },
       {
         title: "Air Traffic Controller Hiring",
         org: "Federal Aviation Administration",
         link: "https://www.faa.gov/atc-hiring",
         note: "Opens intermittently: check the page for the next window",
+        deadline: null,
       },
     ],
   },
@@ -668,30 +679,35 @@ const fr: Dictionary = {
         org: "IRS · USAJOBS",
         link: "https://www.usajobs.gov/job/876071200",
         note: "Candidature avant le 23 juillet 2026",
+        deadline: "2026-07-23",
       },
       {
         title: "Semester of Service",
         org: "U.S. Office of Personnel Management",
         link: "https://semesterofservice.usajobs.gov/",
         note: "Programme de bénévolat étudiant, opportunités continues",
+        deadline: null,
       },
       {
         title: "Bourse Rhodes pour l'Afrique de l'Ouest",
         org: "Rhodes Trust · inclut le Togo",
         link: "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/",
         note: "Candidatures ouvertes jusqu'au 27 août 2026",
+        deadline: "2026-08-27",
       },
       {
         title: "US Tech Force",
         org: "Office of Personnel Management",
         link: "https://techforce.gov/",
         note: "Aucun diplôme requis",
+        deadline: null,
       },
       {
         title: "Recrutement de contrôleurs aériens",
         org: "Federal Aviation Administration",
         link: "https://www.faa.gov/atc-hiring",
         note: "Ouvertures intermittentes : consultez la page pour la prochaine fenêtre",
+        deadline: null,
       },
     ],
   },

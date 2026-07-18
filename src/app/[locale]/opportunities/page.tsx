@@ -7,6 +7,16 @@ import { getDictionary } from "@/lib/dictionaries";
 import { isValidLocale } from "@/lib/i18n";
 import type { FieldConfig } from "@/components/IntakeForm";
 
+// Re-check deadlines daily even without a new deploy, so expired
+// Featured Opportunities disappear on their own.
+export const revalidate = 86400;
+
+function isStillOpen(deadline: string | null): boolean {
+  if (!deadline) return true;
+  const todayStr = new Date().toISOString().slice(0, 10);
+  return todayStr <= deadline;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -27,6 +37,8 @@ export default async function OpportunitiesPage({
   const fullDict = getDictionary(locale);
   const dict = fullDict.opportunities;
   const { common, opportunity } = fullDict.forms;
+
+  const activeFeatured = dict.featured.filter((item) => isStillOpen(item.deadline));
 
   const fields: FieldConfig[] = [
     { kind: "text", name: "name", label: common.nameLabel, required: true },
@@ -52,30 +64,34 @@ export default async function OpportunitiesPage({
     <>
       <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} image="/photos/opportunities.jpg" />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="font-sans text-2xl font-bold text-togo-green sm:text-3xl">
-          {dict.featuredLabel}
-        </h2>
-        <p className="mt-2 max-w-2xl font-serif text-sm leading-relaxed text-ink/60">
-          {dict.featuredDisclaimer}
-        </p>
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-          {dict.featured.map((item) => (
-            <li key={item.link}>
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-full flex-col justify-between gap-2 rounded-2xl border border-ink/10 bg-white/70 p-4 transition-colors hover:border-togo-green dark:bg-ink/10"
-              >
-                <div>
-                  <p className="font-sans text-sm font-bold text-togo-green">{item.title}</p>
-                  <p className="mt-0.5 font-sans text-xs text-ink/50">{item.org}</p>
-                </div>
-                <p className="font-sans text-xs font-semibold text-togo-red">{item.note}</p>
-              </a>
-            </li>
-          ))}
-        </ul>
+        {activeFeatured.length > 0 && (
+          <>
+            <h2 className="font-sans text-2xl font-bold text-togo-green sm:text-3xl">
+              {dict.featuredLabel}
+            </h2>
+            <p className="mt-2 max-w-2xl font-serif text-sm leading-relaxed text-ink/60">
+              {dict.featuredDisclaimer}
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {activeFeatured.map((item) => (
+                <li key={item.link}>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-full flex-col justify-between gap-2 rounded-2xl border border-ink/10 bg-white/70 p-4 transition-colors hover:border-togo-green dark:bg-ink/10"
+                  >
+                    <div>
+                      <p className="font-sans text-sm font-bold text-togo-green">{item.title}</p>
+                      <p className="mt-0.5 font-sans text-xs text-ink/50">{item.org}</p>
+                    </div>
+                    <p className="font-sans text-xs font-semibold text-togo-red">{item.note}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
 
         <h2 className="mt-14 font-sans text-2xl font-bold text-togo-green sm:text-3xl">
           {dict.categoriesLabel}
