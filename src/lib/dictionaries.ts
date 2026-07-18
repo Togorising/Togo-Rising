@@ -25,6 +25,14 @@ export type Dictionary = {
     whereToStart: string;
     readyTitle: string;
     readyBody: string;
+    bookLabel: string;
+    bookTitle: string;
+    bookAuthor: string;
+    bookBlurb: string;
+    bookLink: string;
+    bookLinkLabel: string;
+    quoteText: string;
+    quoteAttribution: string;
   };
   pillars: Pillar[];
   news: {
@@ -49,6 +57,10 @@ export type Dictionary = {
     ctaSubmit: string;
     disclaimer: string;
     sections: Section[];
+    categoriesLabel: string;
+    featuredLabel: string;
+    featuredDisclaimer: string;
+    featured: { title: string; org: string; link: string; note: string }[];
   };
   newcomers: {
     eyebrow: string;
@@ -180,6 +192,15 @@ const en: Dictionary = {
     readyTitle: "Ready to connect?",
     readyBody:
       "Join Togo Rising and get access to the directory, opportunities, and mentors already inside the community.",
+    bookLabel: "Book of the Season",
+    bookTitle: "Executive Presence: The Missing Link Between Merit and Success",
+    bookAuthor: "Sylvia Ann Hewlett",
+    bookBlurb:
+      "A look at executive presence, the mix of gravitas, communication, and appearance, as the often-overlooked factor that separates merit from advancement.",
+    bookLink: "https://www.goodreads.com/book/show/18498555-executive-presence",
+    bookLinkLabel: "Learn more",
+    quoteText: "I am because we are.",
+    quoteAttribution: "Ubuntu philosophy",
   },
   pillars: [
     {
@@ -261,6 +282,11 @@ const en: Dictionary = {
           "Openings shared by community members and partner employers: inside referrals, not just job board listings.",
       },
       {
+        title: "Internships",
+        description:
+          "Structured, time-bound roles to build real experience, shared as they come up.",
+      },
+      {
         title: "Scholarships",
         description:
           "Funding opportunities for Togolese students and professionals pursuing further education.",
@@ -274,6 +300,42 @@ const en: Dictionary = {
         title: "Grants",
         description:
           "Funding for entrepreneurs, nonprofits, and community initiatives led by Togolese diaspora.",
+      },
+    ],
+    categoriesLabel: "Categories",
+    featuredLabel: "Featured Opportunities",
+    featuredDisclaimer:
+      "These are opportunities we've come across and are sharing with the community. Togo Rising doesn't run, vet, or control them: always confirm details and deadlines directly with the source before applying.",
+    featured: [
+      {
+        title: "Revenue Officer (GS-07/09/11)",
+        org: "IRS · USAJOBS",
+        link: "https://www.usajobs.gov/job/876071200",
+        note: "Apply by July 23, 2026",
+      },
+      {
+        title: "Semester of Service",
+        org: "U.S. Office of Personnel Management",
+        link: "https://semesterofservice.usajobs.gov/",
+        note: "Student volunteer program, rolling opportunities",
+      },
+      {
+        title: "Rhodes Scholarship for West Africa",
+        org: "Rhodes Trust · includes Togo",
+        link: "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/",
+        note: "Applications open through August 27, 2026",
+      },
+      {
+        title: "US Tech Force",
+        org: "Office of Personnel Management",
+        link: "https://techforce.gov/",
+        note: "No degree required",
+      },
+      {
+        title: "Air Traffic Controller Hiring",
+        org: "Federal Aviation Administration",
+        link: "https://www.faa.gov/atc-hiring",
+        note: "Opens intermittently: check the page for the next window",
       },
     ],
   },
@@ -423,7 +485,7 @@ const en: Dictionary = {
       description: "Share a job, scholarship, contract, or grant with the community.",
       opportunityTitleLabel: "Opportunity title",
       typeLabel: "Type",
-      typeOptions: ["Job", "Scholarship", "Contract", "Grant"],
+      typeOptions: ["Job", "Internship", "Scholarship", "Contract", "Grant"],
       detailsLabel: "Details",
       linkLabel: "Link (optional)",
     },
@@ -486,6 +548,15 @@ const fr: Dictionary = {
     readyTitle: "Prêt à vous connecter ?",
     readyBody:
       "Rejoignez Togo Rising et accédez à l'annuaire, aux opportunités et aux mentors déjà présents dans la communauté.",
+    bookLabel: "Livre de la saison",
+    bookTitle: "Executive Presence: The Missing Link Between Merit and Success",
+    bookAuthor: "Sylvia Ann Hewlett",
+    bookBlurb:
+      "Un regard sur la présence exécutive, ce mélange de prestance, de communication et d'apparence, souvent le facteur négligé qui distingue le mérite de la réussite professionnelle.",
+    bookLink: "https://www.goodreads.com/book/show/18498555-executive-presence",
+    bookLinkLabel: "En savoir plus",
+    quoteText: "Je suis parce que nous sommes.",
+    quoteAttribution: "Philosophie ubuntu",
   },
   pillars: [
     {
@@ -567,6 +638,11 @@ const fr: Dictionary = {
           "Offres partagées par les membres de la communauté et des employeurs partenaires : des recommandations internes, pas seulement des annonces classiques.",
       },
       {
+        title: "Stages",
+        description:
+          "Des postes structurés et limités dans le temps pour acquérir une véritable expérience, partagés au fur et à mesure.",
+      },
+      {
         title: "Bourses",
         description:
           "Opportunités de financement pour les étudiants et professionnels togolais poursuivant leurs études.",
@@ -580,6 +656,42 @@ const fr: Dictionary = {
         title: "Subventions",
         description:
           "Financements pour les entrepreneurs, associations et initiatives communautaires portés par la diaspora togolaise.",
+      },
+    ],
+    categoriesLabel: "Catégories",
+    featuredLabel: "Opportunités en vedette",
+    featuredDisclaimer:
+      "Ce sont des opportunités que nous avons trouvées et partageons avec la communauté. Togo Rising ne les gère, ne les vérifie et ne les contrôle pas : confirmez toujours les détails et les délais directement auprès de la source avant de postuler.",
+    featured: [
+      {
+        title: "Revenue Officer (GS-07/09/11)",
+        org: "IRS · USAJOBS",
+        link: "https://www.usajobs.gov/job/876071200",
+        note: "Candidature avant le 23 juillet 2026",
+      },
+      {
+        title: "Semester of Service",
+        org: "U.S. Office of Personnel Management",
+        link: "https://semesterofservice.usajobs.gov/",
+        note: "Programme de bénévolat étudiant, opportunités continues",
+      },
+      {
+        title: "Bourse Rhodes pour l'Afrique de l'Ouest",
+        org: "Rhodes Trust · inclut le Togo",
+        link: "https://www.rhodeshouse.ox.ac.uk/scholarships/applications/west-africa/",
+        note: "Candidatures ouvertes jusqu'au 27 août 2026",
+      },
+      {
+        title: "US Tech Force",
+        org: "Office of Personnel Management",
+        link: "https://techforce.gov/",
+        note: "Aucun diplôme requis",
+      },
+      {
+        title: "Recrutement de contrôleurs aériens",
+        org: "Federal Aviation Administration",
+        link: "https://www.faa.gov/atc-hiring",
+        note: "Ouvertures intermittentes : consultez la page pour la prochaine fenêtre",
       },
     ],
   },
@@ -729,7 +841,7 @@ const fr: Dictionary = {
       description: "Partagez un emploi, une bourse, un contrat ou une subvention avec la communauté.",
       opportunityTitleLabel: "Titre de l'opportunité",
       typeLabel: "Type",
-      typeOptions: ["Emploi", "Bourse", "Contrat", "Subvention"],
+      typeOptions: ["Emploi", "Stage", "Bourse", "Contrat", "Subvention"],
       detailsLabel: "Détails",
       linkLabel: "Lien (facultatif)",
     },

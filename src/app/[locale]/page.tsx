@@ -91,6 +91,40 @@ export default async function HomePage({
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="flex flex-col justify-center rounded-3xl border border-togo-green/20 bg-togo-green/5 p-6 text-center sm:p-8 dark:bg-togo-green/10">
+            <p className="font-serif text-2xl italic leading-snug text-togo-green sm:text-3xl">
+              &ldquo;{dict.home.quoteText}&rdquo;
+            </p>
+            <p className="mt-3 font-sans text-xs font-semibold uppercase tracking-widest text-ink/50">
+              {dict.home.quoteAttribution}
+            </p>
+          </div>
+
+          <div className="rounded-3xl border border-ink/10 bg-white/70 p-6 dark:bg-ink/10 sm:p-8">
+            <p className="font-sans text-xs font-bold uppercase tracking-widest text-togo-red">
+              {dict.home.bookLabel}
+            </p>
+            <p className="mt-2 font-sans text-lg font-bold text-togo-green">
+              {dict.home.bookTitle}
+            </p>
+            <p className="mt-0.5 font-sans text-sm text-ink/60">{dict.home.bookAuthor}</p>
+            <p className="mt-3 font-serif text-sm leading-relaxed text-ink/75">
+              {dict.home.bookBlurb}
+            </p>
+            <a
+              href={dict.home.bookLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block font-sans text-sm font-semibold text-togo-green hover:text-togo-red"
+            >
+              {dict.home.bookLinkLabel} →
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white/50 dark:bg-ink/5">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <NewsFeed dict={dict.news} locale={locale} />
