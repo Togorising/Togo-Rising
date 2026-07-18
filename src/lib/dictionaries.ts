@@ -289,7 +289,7 @@ const en: Dictionary = {
       {
         title: "Scholarships",
         description:
-          "Funding opportunities for Togolese students and professionals pursuing further education.",
+          "Connect with community members who know about scholarships or have been through the process, and get help with applications. We don't provide funding ourselves, and availability isn't guaranteed.",
       },
       {
         title: "Contracts",
@@ -299,7 +299,7 @@ const en: Dictionary = {
       {
         title: "Grants",
         description:
-          "Funding for entrepreneurs, nonprofits, and community initiatives led by Togolese diaspora.",
+          "Connect with community members who know about grant opportunities for entrepreneurs, nonprofits, and community initiatives. We don't provide funding ourselves, and availability isn't guaranteed.",
       },
     ],
     categoriesLabel: "Categories",
@@ -645,7 +645,7 @@ const fr: Dictionary = {
       {
         title: "Bourses",
         description:
-          "Opportunités de financement pour les étudiants et professionnels togolais poursuivant leurs études.",
+          "Connectez-vous avec des membres de la communauté qui connaissent des bourses ou sont déjà passés par ce processus, et obtenez de l'aide pour vos candidatures. Nous ne fournissons pas de financement nous-mêmes, et la disponibilité n'est pas garantie.",
       },
       {
         title: "Contrats",
@@ -655,7 +655,7 @@ const fr: Dictionary = {
       {
         title: "Subventions",
         description:
-          "Financements pour les entrepreneurs, associations et initiatives communautaires portés par la diaspora togolaise.",
+          "Connectez-vous avec des membres de la communauté qui connaissent des opportunités de subvention pour les entrepreneurs, associations et initiatives communautaires. Nous ne fournissons pas de financement nous-mêmes, et la disponibilité n'est pas garantie.",
       },
     ],
     categoriesLabel: "Catégories",
