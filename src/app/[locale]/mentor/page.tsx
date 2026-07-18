@@ -45,7 +45,7 @@ export default async function MentorPage({
 
   return (
     <>
-      <PageHero eyebrow={mentor.title} title={mentor.title} description={mentor.description} />
+      <PageHero eyebrow={mentor.title} title={mentor.title} description={mentor.description} image="/photos/professionals.jpg" />
       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
         <FormSection formType="mentor" fields={fields} common={common} />
       </section>

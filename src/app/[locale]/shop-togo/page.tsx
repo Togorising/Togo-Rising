@@ -58,7 +58,7 @@ export default async function ShopTogoPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} />
+      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} image="/photos/shop-togo.jpg" />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="rounded-3xl border-2 border-dashed border-togo-green/30 bg-white/60 p-10 text-center">
           <h2 className="font-sans text-2xl font-bold text-togo-green">

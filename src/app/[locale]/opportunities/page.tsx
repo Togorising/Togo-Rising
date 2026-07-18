@@ -50,7 +50,7 @@ export default async function OpportunitiesPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} />
+      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} image="/photos/opportunities.jpg" />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionGrid sections={dict.sections} />
         <div className="mt-10 flex flex-wrap gap-4">
@@ -58,6 +58,9 @@ export default async function OpportunitiesPage({
             {dict.ctaJoin}
           </CtaButton>
         </div>
+        <p className="mt-6 max-w-2xl font-serif text-sm leading-relaxed text-ink/55">
+          {dict.disclaimer}
+        </p>
 
         <div className="mt-12 max-w-2xl">
           <FormSection

@@ -15,6 +15,7 @@ export type Dictionary = {
   footer: {
     tagline: string;
     socialComingSoon: string;
+    disclaimer: string;
   };
   home: {
     eyebrow: string;
@@ -46,6 +47,7 @@ export type Dictionary = {
     description: string;
     ctaJoin: string;
     ctaSubmit: string;
+    disclaimer: string;
     sections: Section[];
   };
   newcomers: {
@@ -166,6 +168,8 @@ const en: Dictionary = {
   footer: {
     tagline: "Empowering Togolese Everywhere",
     socialComingSoon: "Social links coming soon.",
+    disclaimer:
+      "Togo Rising shares opportunities and connects mentors to support the community. Participating doesn't guarantee a job, scholarship, or any other outcome.",
   },
   home: {
     eyebrow: "Togo Rising",
@@ -248,6 +252,8 @@ const en: Dictionary = {
       "Jobs, scholarships, contracts, and grants, shared inside the community first. New opportunities go out to members as they come in.",
     ctaJoin: "Join to Get Opportunities",
     ctaSubmit: "Submit an Opportunity",
+    disclaimer:
+      "Togo Rising shares these opportunities to support the community. Participating doesn't guarantee a job offer, scholarship, or any other outcome.",
     sections: [
       {
         title: "Jobs",
@@ -306,18 +312,23 @@ const en: Dictionary = {
     eyebrow: "Newcomer Hub / USA Pathways",
     title: "Building a life in the United States.",
     description:
-      "Military service, citizenship, and career pipelines, with guidance from people who've navigated these systems themselves.",
+      "Military service, citizenship, higher education, and career pipelines, with guidance from people who've navigated these systems themselves.",
     cta: "Talk to Someone Who's Done It",
     sections: [
       {
         title: "Military",
         description:
-          "Information and connections for those considering military service as a pathway in the United States.",
+          "Connect with Togolese military veterans across the community who are ready to share their firsthand experience with those considering military service.",
       },
       {
         title: "Citizenship",
         description:
-          "Guidance through the naturalization process, from eligibility to interview preparation.",
+          "Connect with community members who've been through naturalization themselves, from eligibility to interview preparation.",
+      },
+      {
+        title: "Higher Education",
+        description:
+          "Connect with Togolese graduates in the community who can help with U.S. college applications, credential evaluation, and choosing the right path.",
       },
       {
         title: "Career Pipelines",
@@ -341,17 +352,17 @@ const en: Dictionary = {
       {
         title: "Start a Business",
         description:
-          "Support for Togolese entrepreneurs, from first idea to formation, funding, and first customers.",
+          "Connect with Togolese entrepreneurs in the community who've already built their own, from first idea to formation, funding, and first customers.",
       },
       {
         title: "Home Buying",
         description:
-          "Understanding the process, the financing, and the pitfalls before you make the biggest purchase of your life.",
+          "Connect with licensed real estate agents and loan officers in the community who can walk you through the process before you make the biggest purchase of your life.",
       },
       {
         title: "FAFSA Help",
         description:
-          "Hands-on help completing financial aid forms for you or your children heading to college.",
+          "Hands-on help from community members who've done it before, completing financial aid forms for you or your children heading to college.",
       },
     ],
   },
@@ -463,6 +474,8 @@ const fr: Dictionary = {
   footer: {
     tagline: "Empowering Togolese Everywhere",
     socialComingSoon: "Liens vers les réseaux sociaux à venir.",
+    disclaimer:
+      "Togo Rising partage des opportunités et met en relation des mentors pour soutenir la communauté. Votre participation ne garantit ni emploi, ni bourse, ni aucun autre résultat.",
   },
   home: {
     eyebrow: "Togo Rising",
@@ -545,6 +558,8 @@ const fr: Dictionary = {
       "Emplois, bourses, contrats et subventions, partagés en priorité au sein de la communauté. Les nouvelles opportunités sont envoyées aux membres dès leur arrivée.",
     ctaJoin: "Rejoindre pour recevoir les opportunités",
     ctaSubmit: "Soumettre une opportunité",
+    disclaimer:
+      "Togo Rising partage ces opportunités pour soutenir la communauté. Votre participation ne garantit ni offre d'emploi, ni bourse, ni aucun autre résultat.",
     sections: [
       {
         title: "Emplois",
@@ -603,18 +618,23 @@ const fr: Dictionary = {
     eyebrow: "Espace Nouveaux Arrivants / USA Pathways",
     title: "Construire sa vie aux États-Unis.",
     description:
-      "Service militaire, naturalisation et parcours professionnels, avec des conseils de personnes qui ont elles-mêmes traversé ces démarches.",
+      "Service militaire, naturalisation, études supérieures et parcours professionnels, avec des conseils de personnes qui ont elles-mêmes traversé ces démarches.",
     cta: "Parler à quelqu'un qui est passé par là",
     sections: [
       {
         title: "Service militaire",
         description:
-          "Informations et mises en relation pour celles et ceux qui envisagent le service militaire comme parcours aux États-Unis.",
+          "Connectez-vous avec des vétérans togolais de la communauté prêts à partager leur expérience avec celles et ceux qui envisagent le service militaire.",
       },
       {
         title: "Naturalisation",
         description:
-          "Accompagnement tout au long du processus de naturalisation, de l'éligibilité à la préparation de l'entretien.",
+          "Connectez-vous avec des membres de la communauté déjà passés par la naturalisation, de l'éligibilité à la préparation de l'entretien.",
+      },
+      {
+        title: "Études supérieures",
+        description:
+          "Connectez-vous avec des diplômés togolais de la communauté qui peuvent vous aider avec les candidatures universitaires américaines, l'évaluation de vos diplômes et le choix du bon parcours.",
       },
       {
         title: "Parcours professionnels",
@@ -638,17 +658,17 @@ const fr: Dictionary = {
       {
         title: "Créer une entreprise",
         description:
-          "Un accompagnement pour les entrepreneurs togolais, de la première idée à la création, au financement et aux premiers clients.",
+          "Connectez-vous avec des entrepreneurs togolais de la communauté qui ont déjà créé la leur, de la première idée à la création, au financement et aux premiers clients.",
       },
       {
         title: "Achat immobilier",
         description:
-          "Comprendre le processus, le financement et les pièges avant de faire l'achat le plus important de votre vie.",
+          "Connectez-vous avec des agents immobiliers et courtiers en prêts agréés de la communauté qui peuvent vous accompagner avant l'achat le plus important de votre vie.",
       },
       {
         title: "Aide FAFSA",
         description:
-          "Une aide concrète pour remplir les formulaires d'aide financière, pour vous ou vos enfants qui entrent à l'université.",
+          "Une aide concrète de membres de la communauté qui sont déjà passés par là, pour remplir les formulaires d'aide financière, pour vous ou vos enfants qui entrent à l'université.",
       },
     ],
   },

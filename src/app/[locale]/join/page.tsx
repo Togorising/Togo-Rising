@@ -39,7 +39,7 @@ export default async function JoinPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.home.joinCommunity} title={join.title} description={join.description} />
+      <PageHero eyebrow={dict.home.joinCommunity} title={join.title} description={join.description} image="/photos/networking.jpg" />
       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
         <FormSection formType="join" fields={fields} common={common} />
       </section>

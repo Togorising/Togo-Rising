@@ -1,7 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import CtaButton from "@/components/CtaButton";
-import GlobeBackground from "@/components/GlobeBackground";
-import HeroMotion from "@/components/HeroMotion";
 import KenteStripe from "@/components/KenteStripe";
 import NewsFeed from "@/components/NewsFeed";
 import { getDictionary } from "@/lib/dictionaries";
@@ -22,29 +21,43 @@ export default async function HomePage({
   return (
     <>
       <section className="relative overflow-hidden">
-        <GlobeBackground />
-        <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-12 sm:px-6 sm:pt-16 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
-          <div>
-            <p className="font-sans text-sm font-bold uppercase tracking-widest text-togo-red">
-              {dict.home.eyebrow}
-            </p>
-            <h1 className="mt-3 font-sans text-4xl font-bold leading-tight tracking-tight text-togo-green sm:text-5xl lg:text-6xl">
-              {dict.home.title}
-            </h1>
-            <p className="mt-6 font-serif text-lg leading-relaxed text-ink/80">
-              {dict.mission}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <CtaButton href={withLocale("/join")} variant="primary">
-                {dict.home.joinCommunity}
-              </CtaButton>
-              <CtaButton href={withLocale("/opportunities")} variant="ghost">
-                {dict.home.exploreOpportunities}
-              </CtaButton>
-            </div>
+        <Image
+          src="/photos/home.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(0,42,25,0.85) 0%, rgba(0,42,25,0.75) 45%, rgba(0,42,25,0.6) 100%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-4xl px-4 py-24 sm:px-6 sm:py-32">
+          <p className="font-sans text-sm font-bold uppercase tracking-widest text-togo-gold">
+            {dict.home.eyebrow}
+          </p>
+          <h1 className="mt-3 font-sans text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+            {dict.home.title}
+          </h1>
+          <p className="mt-6 max-w-2xl font-serif text-lg leading-relaxed text-white/85">
+            {dict.mission}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <CtaButton href={withLocale("/join")} variant="primary">
+              {dict.home.joinCommunity}
+            </CtaButton>
+            <CtaButton
+              href={withLocale("/opportunities")}
+              variant="ghost"
+              className="!border-white !text-white hover:!bg-white hover:!text-togo-green"
+            >
+              {dict.home.exploreOpportunities}
+            </CtaButton>
           </div>
-
-          <HeroMotion overlayText={dict.heroOverlay} />
         </div>
       </section>
 

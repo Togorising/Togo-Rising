@@ -36,7 +36,10 @@ export default function Footer({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <p className="mt-8 font-sans text-xs text-cream/50">
+        <p className="mt-8 max-w-2xl font-sans text-xs leading-relaxed text-cream/60">
+          {dict.footer.disclaimer}
+        </p>
+        <p className="mt-3 font-sans text-xs text-cream/50">
           &copy; {year} Togo Rising. {dict.footer.socialComingSoon}
         </p>
       </div>

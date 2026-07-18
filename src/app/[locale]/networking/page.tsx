@@ -26,7 +26,7 @@ export default async function NetworkingPage({
 
   return (
     <>
-      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} />
+      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} image="/photos/networking.jpg" />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionGrid sections={dict.sections} />
         <div className="mt-10 flex justify-start">
