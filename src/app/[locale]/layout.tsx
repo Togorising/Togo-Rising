@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { locales, isValidLocale } from "@/lib/i18n";
+import { locales, isValidLocale, type Locale } from "@/lib/i18n";
+import { getDictionary } from "@/lib/dictionaries";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -16,21 +17,29 @@ const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Togo Rising — Empowering Togolese Everywhere",
-  description:
-    "Togo Rising connects the Togolese diaspora — students, professionals, entrepreneurs, and newcomers — so no one has to figure it out alone.",
-  icons: {
-    icon: [
-      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-    ],
-    apple: "/apple-touch-icon.png",
-  },
-};
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const dict = getDictionary(isValidLocale(locale) ? locale : "en");
+
+  return {
+    title: `Togo Rising — ${dict.footer.tagline}`,
+    description: dict.meta.homeDescription,
+    icons: {
+      icon: [
+        { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      ],
+      apple: "/apple-touch-icon.png",
+    },
+  };
 }
 
 export default async function RootLayout({
@@ -40,8 +49,9 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-  if (!isValidLocale(locale)) notFound();
+  const { locale: rawLocale } = await params;
+  if (!isValidLocale(rawLocale)) notFound();
+  const locale: Locale = rawLocale;
 
   return (
     <html
@@ -51,7 +61,7 @@ export default async function RootLayout({
       <body className="flex min-h-full flex-col bg-cream text-ink">
         <Header />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <Footer locale={locale} />
       </body>
     </html>
   );

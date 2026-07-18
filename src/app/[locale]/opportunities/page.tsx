@@ -1,27 +1,41 @@
+import { notFound } from "next/navigation";
 import CtaButton from "@/components/CtaButton";
 import PageHero from "@/components/PageHero";
 import SectionGrid from "@/components/SectionGrid";
-import { opportunitiesSections } from "@/lib/content";
+import { getDictionary } from "@/lib/dictionaries";
+import { isValidLocale } from "@/lib/i18n";
 import { tallyUrls } from "@/lib/tally";
 
-export const metadata = { title: "Opportunities — Togo Rising" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) return {};
+  return { title: `${getDictionary(locale).opportunities.eyebrow} | Togo Rising` };
+}
 
-export default function OpportunitiesPage() {
+export default async function OpportunitiesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) notFound();
+  const dict = getDictionary(locale).opportunities;
+
   return (
     <>
-      <PageHero
-        eyebrow="Opportunities"
-        title="Opportunities shouldn't depend on who you know."
-        description="Jobs, scholarships, contracts, and grants — shared inside the community first. New opportunities go out to members as they come in."
-      />
+      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <SectionGrid sections={opportunitiesSections} />
+        <SectionGrid sections={dict.sections} />
         <div className="mt-10 flex flex-wrap gap-4">
           <CtaButton href={tallyUrls.join} variant="primary">
-            Join to Get Opportunities
+            {dict.ctaJoin}
           </CtaButton>
           <CtaButton href={tallyUrls.opportunitySubmit} variant="ghost">
-            Submit an Opportunity
+            {dict.ctaSubmit}
           </CtaButton>
         </div>
       </section>

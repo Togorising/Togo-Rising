@@ -1,4 +1,4 @@
-import type { Section } from "@/lib/content";
+import type { Section } from "@/lib/dictionaries";
 
 export default function SectionGrid({ sections }: { sections: Section[] }) {
   return (

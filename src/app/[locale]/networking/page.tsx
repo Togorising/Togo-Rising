@@ -1,24 +1,38 @@
+import { notFound } from "next/navigation";
 import CtaButton from "@/components/CtaButton";
 import PageHero from "@/components/PageHero";
 import SectionGrid from "@/components/SectionGrid";
-import { networkingSections } from "@/lib/content";
+import { getDictionary } from "@/lib/dictionaries";
+import { isValidLocale } from "@/lib/i18n";
 import { tallyUrls } from "@/lib/tally";
 
-export const metadata = { title: "Networking — Togo Rising" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) return {};
+  return { title: `${getDictionary(locale).networking.eyebrow} | Togo Rising` };
+}
 
-export default function NetworkingPage() {
+export default async function NetworkingPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) notFound();
+  const dict = getDictionary(locale).networking;
+
   return (
     <>
-      <PageHero
-        eyebrow="Networking"
-        title="Find your people, wherever you are."
-        description="A member directory, events, and warm introductions — built so Togolese diaspora can find each other without starting from zero."
-      />
+      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <SectionGrid sections={networkingSections} />
+        <SectionGrid sections={dict.sections} />
         <div className="mt-10 flex justify-start">
           <CtaButton href={tallyUrls.join} variant="primary">
-            Join the Directory
+            {dict.cta}
           </CtaButton>
         </div>
       </section>

@@ -1,24 +1,38 @@
+import { notFound } from "next/navigation";
 import CtaButton from "@/components/CtaButton";
 import PageHero from "@/components/PageHero";
 import SectionGrid from "@/components/SectionGrid";
-import { professionalsSections } from "@/lib/content";
+import { getDictionary } from "@/lib/dictionaries";
+import { isValidLocale } from "@/lib/i18n";
 import { tallyUrls } from "@/lib/tally";
 
-export const metadata = { title: "Rising Professionals — Togo Rising" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) return {};
+  return { title: `${getDictionary(locale).professionals.eyebrow} | Togo Rising` };
+}
 
-export default function ProfessionalsPage() {
+export default async function ProfessionalsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) notFound();
+  const dict = getDictionary(locale).professionals;
+
   return (
     <>
-      <PageHero
-        eyebrow="Rising Professionals"
-        title="Keep climbing — with people who've got your back."
-        description="Career mentorship, business start-up support, home buying, and FAFSA help as you build your future."
-      />
+      <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <SectionGrid sections={professionalsSections} />
+        <SectionGrid sections={dict.sections} />
         <div className="mt-10 flex justify-start">
           <CtaButton href={tallyUrls.mentorSignup} variant="primary">
-            Get Matched with a Mentor
+            {dict.cta}
           </CtaButton>
         </div>
       </section>

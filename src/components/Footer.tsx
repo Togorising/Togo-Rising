@@ -1,8 +1,11 @@
 import Image from "next/image";
 import KenteStripe from "./KenteStripe";
-import { orgEmail } from "@/lib/content";
+import { orgEmail } from "@/lib/constants";
+import { getDictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
   const year = new Date().getFullYear();
 
   return (
@@ -21,7 +24,7 @@ export default function Footer() {
             <div>
               <p className="font-sans text-base font-bold">Togo Rising</p>
               <p className="font-sans text-xs uppercase tracking-wide text-cream/70">
-                Empowering Togolese Everywhere
+                {dict.footer.tagline}
               </p>
             </div>
           </div>
@@ -34,7 +37,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-8 font-sans text-xs text-cream/50">
-          &copy; {year} Togo Rising. Social links coming soon.
+          &copy; {year} Togo Rising. {dict.footer.socialComingSoon}
         </p>
       </div>
     </footer>

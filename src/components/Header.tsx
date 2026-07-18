@@ -4,17 +4,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { primaryNav } from "@/lib/content";
-import { locales } from "@/lib/i18n";
+import { getDictionary } from "@/lib/dictionaries";
+import { locales, type Locale } from "@/lib/i18n";
 
-function useLocale() {
+function useLocale(): Locale {
   const pathname = usePathname();
   const first = pathname.split("/")[1];
-  return (locales as readonly string[]).includes(first) ? first : "en";
+  return (locales as readonly string[]).includes(first) ? (first as Locale) : "en";
 }
 
 export default function Header() {
   const locale = useLocale();
+  const dict = getDictionary(locale);
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -43,7 +44,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
-          {primaryNav.map((item) => (
+          {dict.nav.map((item) => (
             <Link
               key={item.href}
               href={withLocale(item.href)}
@@ -80,7 +81,7 @@ export default function Header() {
 
       {open && (
         <nav className="flex flex-col gap-1 border-t border-ink/10 bg-cream px-4 py-3 lg:hidden">
-          {primaryNav.map((item) => (
+          {dict.nav.map((item) => (
             <Link
               key={item.href}
               href={withLocale(item.href)}

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Dictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
 
 type NewsItem = {
   title: string;
@@ -15,17 +17,29 @@ type ApiResponse = {
   failedSources: string[];
 };
 
-function timeAgo(iso: string | null): string {
+function timeAgo(iso: string | null, locale: Locale): string {
   if (!iso) return "";
   const diffMs = Date.now() - new Date(iso).getTime();
   const hours = Math.round(diffMs / 3_600_000);
+  if (locale === "fr") {
+    if (hours < 1) return "à l'instant";
+    if (hours < 24) return `il y a ${hours} h`;
+    const days = Math.round(hours / 24);
+    return `il y a ${days} j`;
+  }
   if (hours < 1) return "just now";
   if (hours < 24) return `${hours}h ago`;
   const days = Math.round(hours / 24);
   return `${days}d ago`;
 }
 
-export default function NewsFeed() {
+export default function NewsFeed({
+  dict,
+  locale,
+}: {
+  dict: Dictionary["news"];
+  locale: Locale;
+}) {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [error, setError] = useState(false);
 
@@ -52,23 +66,22 @@ export default function NewsFeed() {
       <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 className="font-sans text-2xl font-bold text-togo-green sm:text-3xl">
-            Togo News
+            {dict.title}
           </h2>
           <p className="mt-1 max-w-xl font-serif text-sm text-ink/70">
-            Headlines aggregated automatically from multiple independent outlets.
-            Togo Rising doesn&apos;t write, select, or endorse this coverage.
+            {dict.disclaimer}
           </p>
         </div>
         {data && data.sources.length > 0 && (
           <p className="font-sans text-xs uppercase tracking-wide text-ink/40">
-            Sources: {data.sources.join(" · ")}
+            {dict.sourcesLabel}: {data.sources.join(" · ")}
           </p>
         )}
       </div>
 
       {error && (
         <p className="rounded-2xl border border-ink/10 bg-white/60 p-6 font-serif text-sm text-ink/60">
-          News couldn&apos;t be loaded right now. Try again later.
+          {dict.errorText}
         </p>
       )}
 
@@ -95,7 +108,7 @@ export default function NewsFeed() {
                 </p>
                 <p className="font-sans text-xs uppercase tracking-wide text-ink/40">
                   {item.source}
-                  {item.publishedAt ? ` · ${timeAgo(item.publishedAt)}` : ""}
+                  {item.publishedAt ? ` · ${timeAgo(item.publishedAt, locale)}` : ""}
                 </p>
               </a>
             </li>
@@ -105,7 +118,7 @@ export default function NewsFeed() {
 
       {data && data.items.length === 0 && !error && (
         <p className="rounded-2xl border border-ink/10 bg-white/60 p-6 font-serif text-sm text-ink/60">
-          No headlines available right now. Check back soon.
+          {dict.emptyText}
         </p>
       )}
     </div>

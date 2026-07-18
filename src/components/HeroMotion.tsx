@@ -7,7 +7,7 @@ import { useState } from "react";
  * /public/hero.mp4 (and optionally /public/hero-poster.jpg) and it fades
  * in on top automatically once it proves it can play.
  */
-export default function HeroMotion() {
+export default function HeroMotion({ overlayText }: { overlayText: string }) {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   return (
@@ -35,7 +35,7 @@ export default function HeroMotion() {
 
       <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/40 via-transparent to-transparent p-6">
         <p className="font-sans text-sm font-semibold uppercase tracking-widest text-white/90">
-          Togolese, everywhere
+          {overlayText}
         </p>
       </div>
     </div>
