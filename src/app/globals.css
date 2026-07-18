@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf9f4;
+  --foreground: #14150f;
+
+  --color-togo-green: #006b3f;
+  --color-togo-green-dark: #004d2d;
+  --color-togo-red: #c8102e;
+  --color-togo-gold: #ffce00;
+  --color-cream: #fbf9f4;
+  --color-ink: #14150f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-togo-green: var(--color-togo-green);
+  --color-togo-green-dark: var(--color-togo-green-dark);
+  --color-togo-red: var(--color-togo-red);
+  --color-togo-gold: var(--color-togo-gold);
+  --color-cream: var(--color-cream);
+  --color-ink: var(--color-ink);
+  --font-sans: var(--font-archivo);
+  --font-serif: var(--font-source-serif);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--color-togo-gold);
+  color: var(--color-ink);
+}
+
+.kente-motion {
+  background: linear-gradient(135deg, #003d24 0%, var(--color-togo-green) 55%, #005634 100%);
+  overflow: hidden;
+}
+
+.kente-motion__layer {
+  position: absolute;
+  inset: -20%;
+  background-repeat: repeat;
+  opacity: 0.85;
+  mix-blend-mode: screen;
+}
+
+.kente-motion__layer--a {
+  background-image: repeating-linear-gradient(
+    115deg,
+    var(--color-togo-gold) 0px,
+    var(--color-togo-gold) 14px,
+    transparent 14px,
+    transparent 90px
+  );
+  animation: kente-drift-a 14s linear infinite;
+}
+
+.kente-motion__layer--b {
+  background-image: repeating-linear-gradient(
+    65deg,
+    var(--color-togo-red) 0px,
+    var(--color-togo-red) 10px,
+    transparent 10px,
+    transparent 110px
+  );
+  opacity: 0.55;
+  animation: kente-drift-b 18s linear infinite;
+}
+
+.kente-motion__layer--c {
+  background-image: repeating-linear-gradient(
+    0deg,
+    #ffffff 0px,
+    #ffffff 3px,
+    transparent 3px,
+    transparent 140px
+  );
+  opacity: 0.12;
+  animation: kente-drift-c 22s linear infinite;
+}
+
+.kente-motion__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 206, 0, 0.35), transparent 55%);
+  animation: kente-pulse 6s ease-in-out infinite;
+}
+
+@keyframes kente-drift-a {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-90px, 90px, 0);
+  }
+}
+
+@keyframes kente-drift-b {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(110px, -60px, 0);
+  }
+}
+
+@keyframes kente-drift-c {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 140px, 0);
+  }
+}
+
+@keyframes kente-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kente-motion__layer,
+  .kente-motion__glow {
+    animation: none;
+  }
+}
