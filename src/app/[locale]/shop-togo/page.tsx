@@ -60,7 +60,7 @@ export default async function ShopTogoPage({
     <>
       <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} image="/photos/shop-togo.jpg" />
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="rounded-3xl border-2 border-dashed border-togo-green/30 bg-white/60 p-10 text-center">
+        <div className="rounded-3xl border-2 border-dashed border-togo-green/30 bg-white/60 p-10 text-center dark:bg-ink/10">
           <h2 className="font-sans text-2xl font-bold text-togo-green">
             {dict.listedTitle}
           </h2>
@@ -77,7 +77,7 @@ export default async function ShopTogoPage({
             {dict.categories.map((category) => (
               <span
                 key={category}
-                className="rounded-full border border-ink/15 bg-white/70 px-4 py-2 font-sans text-sm font-semibold text-ink/70"
+                className="rounded-full border border-ink/15 bg-white/70 px-4 py-2 font-sans text-sm font-semibold text-ink/70 dark:bg-ink/10"
               >
                 {category}
               </span>

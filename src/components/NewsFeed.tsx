@@ -80,7 +80,7 @@ export default function NewsFeed({
       </div>
 
       {error && (
-        <p className="rounded-2xl border border-ink/10 bg-white/60 p-6 font-serif text-sm text-ink/60">
+        <p className="rounded-2xl border border-ink/10 bg-white/60 p-6 font-serif text-sm text-ink/60 dark:bg-ink/10">
           {dict.errorText}
         </p>
       )}
@@ -101,7 +101,7 @@ export default function NewsFeed({
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-full flex-col justify-between gap-3 rounded-2xl border border-ink/10 bg-white/70 p-4 transition-colors hover:border-togo-green"
+                className="flex h-full flex-col justify-between gap-3 rounded-2xl border border-ink/10 bg-white/70 p-4 transition-colors hover:border-togo-green dark:bg-ink/10"
               >
                 <p className="font-sans text-sm font-semibold leading-snug text-ink">
                   {item.title}
@@ -117,7 +117,7 @@ export default function NewsFeed({
       )}
 
       {data && data.items.length === 0 && !error && (
-        <p className="rounded-2xl border border-ink/10 bg-white/60 p-6 font-serif text-sm text-ink/60">
+        <p className="rounded-2xl border border-ink/10 bg-white/60 p-6 font-serif text-sm text-ink/60 dark:bg-ink/10">
           {dict.emptyText}
         </p>
       )}

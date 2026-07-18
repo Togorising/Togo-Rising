@@ -28,7 +28,7 @@ export default async function ContactPage({
     <>
       <PageHero eyebrow={dict.eyebrow} title={dict.title} description={dict.description} image="/photos/contact.jpg" />
       <section className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-        <div className="rounded-3xl border border-ink/10 bg-white/70 p-8">
+        <div className="rounded-3xl border border-ink/10 bg-white/70 p-8 dark:bg-ink/10">
           <h2 className="font-sans text-xl font-bold text-togo-green">
             {dict.emailHeading}
           </h2>

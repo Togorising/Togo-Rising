@@ -15,7 +15,7 @@ export default function FormSection({
   common: Dictionary["forms"]["common"];
 }) {
   return (
-    <div className="rounded-3xl border border-ink/10 bg-white/70 p-6 sm:p-8">
+    <div className="rounded-3xl border border-ink/10 bg-white/70 p-6 sm:p-8 dark:bg-ink/10">
       {title && (
         <h2 className="font-sans text-2xl font-bold text-togo-green">{title}</h2>
       )}

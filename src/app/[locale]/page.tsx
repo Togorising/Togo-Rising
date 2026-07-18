@@ -73,7 +73,7 @@ export default async function HomePage({
             <Link
               key={pillar.href}
               href={withLocale(pillar.href)}
-              className="group flex flex-col justify-between rounded-3xl border border-ink/10 bg-white/70 p-6 transition-colors hover:border-togo-green"
+              className="group flex flex-col justify-between rounded-3xl border border-ink/10 bg-white/70 p-6 transition-colors hover:border-togo-green dark:bg-ink/10"
             >
               <div>
                 <h3 className="font-sans text-xl font-bold text-togo-green">
@@ -91,7 +91,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      <section className="bg-white/50">
+      <section className="bg-white/50 dark:bg-ink/5">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <NewsFeed dict={dict.news} locale={locale} />
         </div>

@@ -9,7 +9,7 @@ export default function Footer({ locale }: { locale: Locale }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 bg-togo-green text-cream">
+    <footer className="mt-24 bg-togo-green-dark text-parchment">
       <KenteStripe />
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
@@ -23,23 +23,23 @@ export default function Footer({ locale }: { locale: Locale }) {
             />
             <div>
               <p className="font-sans text-base font-bold">Togo Rising</p>
-              <p className="font-sans text-xs uppercase tracking-wide text-cream/70">
+              <p className="font-sans text-xs uppercase tracking-wide text-parchment/70">
                 {dict.footer.tagline}
               </p>
             </div>
           </div>
 
-          <div className="font-sans text-sm text-cream/80">
+          <div className="font-sans text-sm text-parchment/80">
             <a href={`mailto:${orgEmail}`} className="hover:text-togo-gold">
               {orgEmail}
             </a>
           </div>
         </div>
 
-        <p className="mt-8 max-w-2xl font-sans text-xs leading-relaxed text-cream/60">
+        <p className="mt-8 max-w-2xl font-sans text-xs leading-relaxed text-parchment/60">
           {dict.footer.disclaimer}
         </p>
-        <p className="mt-3 font-sans text-xs text-cream/50">
+        <p className="mt-3 font-sans text-xs text-parchment/50">
           &copy; {year} Togo Rising. {dict.footer.socialComingSoon}
         </p>
       </div>

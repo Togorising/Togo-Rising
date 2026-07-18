@@ -6,7 +6,7 @@ export default function SectionGrid({ sections }: { sections: Section[] }) {
       {sections.map((section) => (
         <div
           key={section.title}
-          className="rounded-3xl border border-ink/10 bg-white/70 p-6"
+          className="rounded-3xl border border-ink/10 bg-white/70 p-6 dark:bg-ink/10"
         >
           <h3 className="font-sans text-xl font-bold text-togo-green">
             {section.title}

@@ -45,10 +45,17 @@ function stripSourceSuffix(title: string): string {
 
 async function fetchFeed(feed: Feed): Promise<NewsItem[]> {
   const res = await fetch(feed.url, {
-    headers: { "User-Agent": "TogoRisingBot/1.0 (+https://togorising.org)" },
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+      Accept: "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+    },
     next: { revalidate },
   });
-  if (!res.ok) throw new Error(`${feed.source} responded ${res.status}`);
+  if (!res.ok) {
+    console.error(`[togo-news] ${feed.source} fetch failed: ${res.status} ${res.statusText}`);
+    throw new Error(`${feed.source} responded ${res.status}`);
+  }
 
   const xml = await res.text();
   const parsed = parser.parse(xml);

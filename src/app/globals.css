@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #fbf9f4;
   --foreground: #14150f;
@@ -10,6 +12,19 @@
   --color-togo-gold: #ffce00;
   --color-cream: #fbf9f4;
   --color-ink: #14150f;
+  --color-parchment: #fbf9f4;
+
+  --a11y-font-scale: 1;
+  --a11y-line-height: 1;
+  --a11y-letter-spacing: 0px;
+}
+
+:root.dark {
+  --background: #12160f;
+  --foreground: #f3efe3;
+  --color-togo-green: #3ec48c;
+  --color-cream: #12160f;
+  --color-ink: #f3efe3;
 }
 
 @theme inline {
@@ -21,13 +36,21 @@
   --color-togo-gold: var(--color-togo-gold);
   --color-cream: var(--color-cream);
   --color-ink: var(--color-ink);
+  --color-parchment: var(--color-parchment);
   --font-sans: var(--font-archivo);
   --font-serif: var(--font-source-serif);
+}
+
+html {
+  font-size: calc(100% * var(--a11y-font-scale));
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  line-height: calc(1.5 * var(--a11y-line-height));
+  letter-spacing: var(--a11y-letter-spacing);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 ::selection {
@@ -52,4 +75,43 @@ body {
   .hero-kenburns {
     animation: none;
   }
+}
+
+/* Accessibility panel effects */
+
+.a11y-bold body,
+.a11y-bold body * {
+  font-weight: 700 !important;
+}
+
+.a11y-readable body,
+.a11y-readable body * {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.a11y-align-left p,
+.a11y-align-left li {
+  text-align: left !important;
+}
+
+.a11y-align-center p,
+.a11y-align-center li {
+  text-align: center !important;
+}
+
+.a11y-align-right p,
+.a11y-align-right li {
+  text-align: right !important;
+}
+
+.a11y-monochrome {
+  filter: grayscale(1);
+}
+
+.a11y-big-cursor,
+.a11y-big-cursor * {
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path d="M3 2l7.07 17.5 2.51-6.92 6.92-2.51z" fill="black" stroke="white" stroke-width="1.2"/></svg>')
+      4 4,
+    auto !important;
 }

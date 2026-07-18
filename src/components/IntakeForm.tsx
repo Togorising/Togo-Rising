@@ -107,14 +107,14 @@ export default function IntakeForm({
               required={field.required}
               placeholder={"placeholder" in field ? field.placeholder : undefined}
               rows={4}
-              className="rounded-xl border border-ink/15 bg-white px-4 py-2.5 font-serif text-base text-ink outline-none focus:border-togo-green"
+              className="rounded-xl border border-ink/15 bg-white px-4 py-2.5 font-serif text-base text-ink outline-none focus:border-togo-green dark:bg-ink/10"
             />
           ) : field.kind === "select" ? (
             <select
               name={field.name}
               required={field.required}
               defaultValue=""
-              className="rounded-xl border border-ink/15 bg-white px-4 py-2.5 font-serif text-base text-ink outline-none focus:border-togo-green"
+              className="rounded-xl border border-ink/15 bg-white px-4 py-2.5 font-serif text-base text-ink outline-none focus:border-togo-green dark:bg-ink/10"
             >
               <option value="" disabled>
                 {" "}
@@ -131,7 +131,7 @@ export default function IntakeForm({
               name={field.name}
               required={field.required}
               placeholder={"placeholder" in field ? field.placeholder : undefined}
-              className="rounded-xl border border-ink/15 bg-white px-4 py-2.5 font-serif text-base text-ink outline-none focus:border-togo-green"
+              className="rounded-xl border border-ink/15 bg-white px-4 py-2.5 font-serif text-base text-ink outline-none focus:border-togo-green dark:bg-ink/10"
             />
           )}
         </label>
