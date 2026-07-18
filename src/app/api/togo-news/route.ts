@@ -17,8 +17,8 @@ type Feed = {
 
 const FEEDS: Feed[] = [
   {
-    url: "https://news.google.com/rss/search?q=Togo&hl=en-US&gl=US&ceid=US:en",
-    source: "Google News",
+    url: "https://www.bing.com/news/search?q=Togo&format=RSS",
+    source: "Bing News",
   },
   {
     url: "https://www.rfi.fr/en/tag/togo/rss",
@@ -35,12 +35,6 @@ const parser = new XMLParser({ ignoreAttributes: false });
 function toArray<T>(value: T | T[] | undefined): T[] {
   if (!value) return [];
   return Array.isArray(value) ? value : [value];
-}
-
-function stripSourceSuffix(title: string): string {
-  // Google News titles are formatted "Headline - Source"
-  const idx = title.lastIndexOf(" - ");
-  return idx > 0 ? title.slice(0, idx) : title;
 }
 
 async function fetchFeed(feed: Feed): Promise<NewsItem[]> {
@@ -62,9 +56,8 @@ async function fetchFeed(feed: Feed): Promise<NewsItem[]> {
   const items = toArray(parsed?.rss?.channel?.item);
 
   return items.slice(0, 10).map((item): NewsItem => {
-    const rawTitle = String(item.title ?? "").trim();
     return {
-      title: feed.source === "Google News" ? stripSourceSuffix(rawTitle) : rawTitle,
+      title: String(item.title ?? "").trim(),
       link: String(item.link ?? "").trim(),
       source: feed.source,
       publishedAt: item.pubDate ? new Date(item.pubDate).toISOString() : null,
