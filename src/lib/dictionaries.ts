@@ -422,9 +422,9 @@ const en: Dictionary = {
           "Connect with licensed real estate agents and loan officers in the community who can walk you through the process before you make the biggest purchase of your life.",
       },
       {
-        title: "FAFSA Help",
+        title: "Scholarship Applications",
         description:
-          "Hands-on help from community members who've done it before, completing financial aid forms for you or your children heading to college.",
+          "Hands-on help from community members who've done it before, finding scholarships and completing financial aid forms like the FAFSA for you or your children heading to college.",
       },
     ],
   },
@@ -778,9 +778,9 @@ const fr: Dictionary = {
           "Connectez-vous avec des agents immobiliers et courtiers en prêts agréés de la communauté qui peuvent vous accompagner avant l'achat le plus important de votre vie.",
       },
       {
-        title: "Aide FAFSA",
+        title: "Candidatures aux bourses",
         description:
-          "Une aide concrète de membres de la communauté qui sont déjà passés par là, pour remplir les formulaires d'aide financière, pour vous ou vos enfants qui entrent à l'université.",
+          "Une aide concrète de membres de la communauté qui sont déjà passés par là, pour trouver des bourses et remplir les formulaires d'aide financière comme le FAFSA, pour vous ou vos enfants qui entrent à l'université.",
       },
     ],
   },
