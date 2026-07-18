@@ -139,9 +139,9 @@ export default function AccessibilityWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-label="Accessibility settings"
         aria-expanded={open}
-        className="fixed bottom-5 left-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-togo-green text-white shadow-lg transition-transform hover:scale-105"
+        className="fixed bottom-4 right-4 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-togo-green text-white shadow-lg transition-transform hover:scale-105 sm:bottom-5 sm:right-5 sm:h-12 sm:w-12"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.6" />
           <circle cx="12" cy="8" r="1.6" fill="currentColor" />
           <path
@@ -158,7 +158,7 @@ export default function AccessibilityWidget() {
         <div
           role="dialog"
           aria-label="Accessibility settings"
-          className="fixed bottom-20 left-5 z-50 w-[19rem] max-h-[75vh] overflow-y-auto rounded-2xl border border-ink/10 bg-cream text-ink shadow-2xl"
+          className="fixed bottom-20 right-4 left-4 z-50 max-h-[75vh] overflow-y-auto rounded-2xl border border-ink/10 bg-cream text-ink shadow-2xl sm:left-auto sm:right-5 sm:w-[19rem]"
         >
           <div className="sticky top-0 flex items-center justify-between border-b border-ink/10 bg-cream px-5 py-4">
             <p className="font-sans text-base font-bold text-togo-green">Accessibility</p>
