@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import CtaButton from "@/components/CtaButton";
 import KenteStripe from "@/components/KenteStripe";
@@ -21,14 +20,16 @@ export default async function HomePage({
   return (
     <>
       <section className="relative overflow-hidden">
-        <Image
-          src="/photos/home.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/photos/home.jpg"
+        >
+          <source src="/photos/togo-flag.mp4" type="video/mp4" />
+        </video>
         <div
           className="absolute inset-0"
           style={{

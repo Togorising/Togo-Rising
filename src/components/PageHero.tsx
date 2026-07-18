@@ -19,7 +19,7 @@ export default function PageHero({
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="hero-kenburns object-cover"
       />
       <div
         className="absolute inset-0"

@@ -35,164 +35,21 @@ body {
   color: var(--color-ink);
 }
 
-.kente-motion {
-  background: linear-gradient(135deg, #003d24 0%, var(--color-togo-green) 55%, #005634 100%);
-  overflow: hidden;
+.hero-kenburns {
+  animation: hero-kenburns 24s ease-in-out infinite alternate;
 }
 
-.kente-motion__layer {
-  position: absolute;
-  inset: -20%;
-  background-repeat: repeat;
-  opacity: 0.85;
-  mix-blend-mode: screen;
-}
-
-.kente-motion__layer--a {
-  background-image: repeating-linear-gradient(
-    115deg,
-    var(--color-togo-gold) 0px,
-    var(--color-togo-gold) 14px,
-    transparent 14px,
-    transparent 90px
-  );
-  animation: kente-drift-a 14s linear infinite;
-}
-
-.kente-motion__layer--b {
-  background-image: repeating-linear-gradient(
-    65deg,
-    var(--color-togo-red) 0px,
-    var(--color-togo-red) 10px,
-    transparent 10px,
-    transparent 110px
-  );
-  opacity: 0.55;
-  animation: kente-drift-b 18s linear infinite;
-}
-
-.kente-motion__layer--c {
-  background-image: repeating-linear-gradient(
-    0deg,
-    #ffffff 0px,
-    #ffffff 3px,
-    transparent 3px,
-    transparent 140px
-  );
-  opacity: 0.12;
-  animation: kente-drift-c 22s linear infinite;
-}
-
-.kente-motion__glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 206, 0, 0.35), transparent 55%);
-  animation: kente-pulse 6s ease-in-out infinite;
-}
-
-@keyframes kente-drift-a {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-90px, 90px, 0);
-  }
-}
-
-@keyframes kente-drift-b {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(110px, -60px, 0);
-  }
-}
-
-@keyframes kente-drift-c {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(0, 140px, 0);
-  }
-}
-
-@keyframes kente-pulse {
-  0%,
-  100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.08);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .kente-motion__layer,
-  .kente-motion__glow {
-    animation: none;
-  }
-}
-
-.globe-bg {
-  animation: globe-drift 40s ease-in-out infinite;
-}
-
-.globe-meridian {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: globe-spin 9s linear infinite;
-}
-
-.globe-pin {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: globe-pin-pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes globe-drift {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2%);
-  }
-}
-
-@keyframes globe-spin {
+@keyframes hero-kenburns {
   0% {
-    transform: scaleX(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: scaleX(0.02);
-    opacity: 0.25;
+    transform: scale(1) translate(0, 0);
   }
   100% {
-    transform: scaleX(1);
-    opacity: 0.8;
-  }
-}
-
-@keyframes globe-pin-pulse {
-  0%,
-  100% {
-    opacity: 0.5;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
+    transform: scale(1.12) translate(-1%, -1%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .globe-bg,
-  .globe-meridian,
-  .globe-pin {
+  .hero-kenburns {
     animation: none;
   }
 }
