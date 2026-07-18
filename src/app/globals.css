@@ -135,3 +135,64 @@ body {
     animation: none;
   }
 }
+
+.globe-bg {
+  animation: globe-drift 40s ease-in-out infinite;
+}
+
+.globe-meridian {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: globe-spin 9s linear infinite;
+}
+
+.globe-pin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: globe-pin-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes globe-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2%);
+  }
+}
+
+@keyframes globe-spin {
+  0% {
+    transform: scaleX(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scaleX(0.02);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes globe-pin-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-bg,
+  .globe-meridian,
+  .globe-pin {
+    animation: none;
+  }
+}

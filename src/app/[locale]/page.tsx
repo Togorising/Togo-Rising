@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CtaButton from "@/components/CtaButton";
+import GlobeBackground from "@/components/GlobeBackground";
 import HeroMotion from "@/components/HeroMotion";
 import KenteStripe from "@/components/KenteStripe";
 import NewsFeed from "@/components/NewsFeed";
@@ -20,8 +21,9 @@ export default async function HomePage({
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pb-12 pt-12 sm:px-6 sm:pt-16">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+      <section className="relative overflow-hidden">
+        <GlobeBackground />
+        <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-12 sm:px-6 sm:pt-16 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
           <div>
             <p className="font-sans text-sm font-bold uppercase tracking-widest text-togo-red">
               {dict.home.eyebrow}
