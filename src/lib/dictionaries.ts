@@ -199,11 +199,12 @@ const en: Dictionary = {
     readyBody:
       "Join Togo Rising and get access to the directory, opportunities, and mentors already inside the community.",
     bookLabel: "Book of the Season",
-    bookTitle: "Executive Presence: The Missing Link Between Merit and Success",
-    bookAuthor: "Sylvia Ann Hewlett",
+    bookTitle: "Community Force One: Individual Strengths | Collective Impact",
+    bookAuthor: "Komlan Albert Anyinefa",
     bookBlurb:
-      "A look at executive presence, the mix of gravitas, communication, and appearance, as the often-overlooked factor that separates merit from advancement.",
-    bookLink: "https://www.goodreads.com/book/show/18498555-executive-presence",
+      "A guide to the 12 essential roles that make any community thrive, from Visionaries who dream big to Quiet Contributors who keep the foundation strong, and how individual strengths add up to collective impact for the Togolese community in the U.S.",
+    bookLink:
+      "https://www.amazon.com/COMMUNITY-FORCE-ONE-Individual-Collective-ebook/dp/B0G6Z6J5MQ",
     bookLinkLabel: "Learn more",
     quoteText: "I am because we are.",
     quoteAttribution: "Ubuntu philosophy",
@@ -560,11 +561,12 @@ const fr: Dictionary = {
     readyBody:
       "Rejoignez Togo Rising et accédez à l'annuaire, aux opportunités et aux mentors déjà présents dans la communauté.",
     bookLabel: "Livre de la saison",
-    bookTitle: "Executive Presence: The Missing Link Between Merit and Success",
-    bookAuthor: "Sylvia Ann Hewlett",
+    bookTitle: "Community Force One: Individual Strengths | Collective Impact",
+    bookAuthor: "Komlan Albert Anyinefa",
     bookBlurb:
-      "Un regard sur la présence exécutive, ce mélange de prestance, de communication et d'apparence, souvent le facteur négligé qui distingue le mérite de la réussite professionnelle.",
-    bookLink: "https://www.goodreads.com/book/show/18498555-executive-presence",
+      "Un guide sur les 12 rôles essentiels qui font prospérer une communauté, des Visionnaires qui voient grand aux Contributeurs discrets qui en tiennent les fondations, et sur la façon dont les forces individuelles créent un impact collectif pour la communauté togolaise aux États-Unis.",
+    bookLink:
+      "https://www.amazon.com/COMMUNITY-FORCE-ONE-Individual-Collective-ebook/dp/B0G6Z6J5MQ",
     bookLinkLabel: "En savoir plus",
     quoteText: "Je suis parce que nous sommes.",
     quoteAttribution: "Philosophie ubuntu",
